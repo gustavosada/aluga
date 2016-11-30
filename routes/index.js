@@ -3,7 +3,7 @@ var db = require('../initDB');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.send(../home.html);
+  res.send('../home.html');
 });
 
 router.get('/register', function(req, res) {
