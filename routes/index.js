@@ -1,9 +1,10 @@
 var express = require('express');
 var db = require('../initDB');
 var router = express.Router();
+var path = require('path');
 
 router.get('/', function(req, res) {
-  res.sendFile('../home.html');
+  res.sendFile(path.join(__dirname, '../home.html');
 });
 
 router.get('/register', function(req, res) {
