@@ -2,6 +2,10 @@ var express = require('express');
 var db = require('../initDB');
 var router = express.Router();
 
+router.get('/', function(req, res) {
+  res.send(../home.html);
+});
+
 router.get('/register', function(req, res) {
   var username = req.query.username;
   var password = req.query.password;
