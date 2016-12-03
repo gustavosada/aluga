@@ -217,9 +217,9 @@ router.get('/getAds', function(req, res) { //ajeitar para retornar nome do dono 
 router.get('/getRentEstate', function(req, res) {
   //mostra info do imovel alugado
   var userId = req.query.userId;
-  db.any('SELECT * FROM estate_ads WHERE id = (SELECT estate_id FROM estates_groups WHERE group_id = (SELECT group_id FROM groups_users WHERE user_id = $1))', userId)
+  db.any('SELECT * FROM estate_ads WHERE id = (SELECT estate_ad_id FROM estates_groups WHERE group_id = (SELECT group_id FROM groups_users WHERE user_id = $1))', userId)
     .then(function(data) {
-      res.send(JSON.stringify(data));
+      res.send(data);
     })
     .catch(function(err) {
       res.send({});
