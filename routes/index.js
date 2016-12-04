@@ -43,6 +43,7 @@ router.get('/createGroup', function(req, res) {
         db.none('INSERT INTO groups_users VALUES($1, (SELECT id FROM users WHERE username=$2))', [groupId, users.pop()])
         .catch(function(err) {
           console.log(err.message);
+          res.send({status: false});
         })
       }
       res.send({status: true});
