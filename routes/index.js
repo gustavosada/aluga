@@ -80,7 +80,7 @@ router.get('/rent', function(req, res) { //bug: cria grupo mesmo se nao existir 
   db.any('SELECT group_id FROM groups_users WHERE user_id = $1', userId)
     .then(function(data) {
       if(data.length > 0) {
-        var groupId = data.group_id;
+        var groupId = data[0].group_id;
         db.none('INSERT INTO estates_groups VALUES($1, $2)', [estateId, groupId])
           .then(function() {
             res.send({status: true});
